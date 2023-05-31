@@ -31,7 +31,7 @@ barcode = input("Enter item barcode: ")
 PATH = ('C:/chromedriver.exe')
 driver = webdriver.Chrome(PATH)
 driver.get(
-    'https://bc.deepcatchgroup.com/DT_BC21_UAT_UP/SignIn?ReturnUrl=%2FDT_BC21_UAT_UP%2F')
+    'https://bc.deepcatchgroup.com/')
 # wait for the iframe element to load
 
 driver.maximize_window()
