@@ -53,7 +53,7 @@ time.sleep(10)
 
 # Change link to Items
 driver.get(
-    'https://bc.deepcatchgroup.com/DT_BC21_UAT_UP/?company=Deep%20Catch%20Trading%20(Pty)%20Ltd&node=00002338-752d-0000-0c5f-2f00836bd2d2&page=31&dc=0&bookmark=31%3bGwAAAAJ7%2fzIANABJAEMARQAwADAAMQAwADA%3d')
+    'https://bc.deepcatchgroup.com/DT_BC21_UAT_UP/')
 time.sleep(15)
 
 # switch to the iframe
