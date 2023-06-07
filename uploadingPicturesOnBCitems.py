@@ -42,6 +42,55 @@ def run(playwright: Playwright) -> None:
         pi.download(Description, limit=10 )
         time.sleep(15)
 
+        # Remove Background
+        from rembg import remove
+        from PIL import Image
+
+        input_path = fr'C:\\Users\\lothart.IMPERIAL\\OneDrive - DP World\\Desktop\\playwright\\images\\{description2}\\{description1}_7.jpeg'
+        output_path = fr'C:\\Users\\lothart.IMPERIAL\\OneDrive - DP World\\Desktop\\playwright\\images\\{description2}\\{description1}_11.jpeg'
+
+        # Open input image
+        input_image = Image.open(input_path)
+
+        # Apply background removal
+        output_image = remove(input_image)
+
+        # Convert image to RGB mode
+        output_image = output_image.convert("RGB")
+
+        # Save output image
+        output_image.save(output_path)
+
+        
+        #-----------------------
+
+
+        # Resize image
+        from PIL import Image
+
+        image_path = fr'C:\\Users\\lothart.IMPERIAL\\OneDrive - DP World\\Desktop\\playwright\\images\\{description2}\\{description1}_11.jpeg'
+        desired_size = (771, 771)
+
+        # Open image
+        im = Image.open(image_path)
+
+        # Create a new blank image with the desired size and white background
+        new_image = Image.new('RGB', desired_size, (255, 255, 255))
+
+        # Calculate the position to paste the original image to center it
+        paste_position = ((desired_size[0] - im.width) // 2, (desired_size[1] - im.height) // 2)
+
+        # Paste the original image onto the new image
+        new_image.paste(im, paste_position)
+
+        # Save the new image
+        output_path = fr'C:\\Users\\lothart.IMPERIAL\\OneDrive - DP World\\Desktop\\playwright\\images\\{description2}\\{description1}_12.jpeg'
+        new_image.save(output_path)
+
+        #---------------------
+        
+        time.sleep(5)
+
         #---------------------
         page.frame_locator("iframe[title=\"Main Content\"]").get_by_role("button", name="Picture").click()
         time5()
@@ -55,12 +104,12 @@ def run(playwright: Playwright) -> None:
 
 
         # Check if PNG file exists
-        png_path = os.path.abspath(os.path.join(base_path, description2, f"{description1}_4.png"))
+        png_path = os.path.abspath(os.path.join(base_path, description2, f"{description1}_12.png"))
         if os.path.isfile(png_path):
             file_path = png_path
         else:
             # If PNG file doesn't exist, use JPEG file
-            jpeg_path = os.path.abspath(os.path.join(base_path, description2, f"{description1}_4.jpeg"))
+            jpeg_path = os.path.abspath(os.path.join(base_path, description2, f"{description1}_12.jpeg"))
             if os.path.isfile(jpeg_path):
                 file_path = jpeg_path
             else:
